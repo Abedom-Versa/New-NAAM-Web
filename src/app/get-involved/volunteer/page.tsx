@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { SplitFeature, IconCards } from "@/components/ui/blocks";
 import { CTABand } from "@/components/ui/CTABand";
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { TeamGrid } from "@/components/ui/TeamGrid";
+import { volunteers } from "@/lib/team";
 import { volunteerRoles } from "@/lib/content";
 import { org } from "@/lib/site";
 
@@ -11,8 +15,8 @@ export const metadata: Metadata = {
     "NAAM relies on dedicated volunteers who mentor, tutor ESOL, drive, or share a professional skill to help new Americans thrive.",
 };
 
-const volunteerForm =
-  "https://forms.office.com/r/naam-volunteer-interest";
+// The interest form linked from naamass.org's Volunteer page.
+const volunteerForm = "https://forms.office.com/r/0BvmGVu8aF";
 
 export default function VolunteerPage() {
   return (
@@ -43,6 +47,18 @@ export default function VolunteerPage() {
         items={volunteerRoles}
         columns={3}
       />
+
+      <section className="bg-white py-16 sm:py-20">
+        <Container>
+          <SectionHeading
+            className="mb-10"
+            eyebrow="Meet our volunteers"
+            title="The people who give their time"
+            description="Our volunteers teach, tutor, and mentor alongside our staff. Select anyone to read their story."
+          />
+          <TeamGrid members={volunteers} />
+        </Container>
+      </section>
 
       <CTABand
         title="Ready to volunteer?"

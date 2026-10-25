@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
-import { Calendar } from "lucide-react";
+import { ArrowUpRight, Calendar } from "lucide-react";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { CTABand } from "@/components/ui/CTABand";
-import { news, org, type NewsItem } from "@/lib/site";
+import { HaitianStatement } from "@/components/ui/HaitianStatement";
+import { news, type NewsItem } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "News & Events",
@@ -16,7 +18,10 @@ export const metadata: Metadata = {
 function NewsCard({ item, delay = 0 }: { item: NewsItem; delay?: number }) {
   return (
     <Reveal delay={delay}>
-      <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-100 bg-white transition-all hover:-translate-y-1 hover:shadow-card">
+      <Link
+        href={`/news/${item.slug}`}
+        className="group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-100 bg-white transition-all hover:-translate-y-1 hover:shadow-card"
+      >
         <div className="relative h-48 overflow-hidden">
           <Image
             src={item.image}
@@ -37,8 +42,12 @@ function NewsCard({ item, delay = 0 }: { item: NewsItem; delay?: number }) {
           <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">
             {item.excerpt}
           </p>
+          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">
+            Read more
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </span>
         </div>
-      </article>
+      </Link>
     </Reveal>
   );
 }
@@ -52,10 +61,13 @@ export default function NewsPage() {
     <>
       <PageHeader
         eyebrow="News & events"
-        title="Stories from the New American Center"
+        title="What's Happening at NAAM"
         lead="Awards, media coverage, and community gatherings that celebrate the people and partners who make our work possible."
         crumbs={[{ label: "News & Events" }]}
       />
+
+      {/* Moved here from the homepage at the client's request (Oct 2026). */}
+      <HaitianStatement />
 
       {/* Most recent: three frames */}
       <section className="bg-white py-16 sm:py-20">
@@ -89,7 +101,6 @@ export default function NewsPage() {
         text="Your support and time help write the next chapter for a new American family."
         actions={[
           { label: "Get involved", href: "/get-involved", variant: "primary" },
-          { label: "Donate", href: org.donateUrl, variant: "outline" },
         ]}
       />
     </>

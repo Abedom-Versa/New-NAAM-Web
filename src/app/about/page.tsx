@@ -3,12 +3,12 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { Icon } from "@/components/ui/Icon";
 import { IconCards } from "@/components/ui/blocks";
 import { CTABand } from "@/components/ui/CTABand";
 import { CountUp } from "@/components/ui/CountUp";
+import { Timeline } from "@/components/ui/Timeline";
 import { aboutContent } from "@/lib/content";
-import { stats, org } from "@/lib/site";
+import { stats } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Who We Are",
@@ -60,39 +60,14 @@ export default function AboutPage() {
         <Container>
           <SectionHeading
             align="center"
-            className="mb-14"
+            className="mb-10"
             eyebrow="Our story"
             title="From a community association to a statewide welcome"
+            description="Explore the pivotal moments that have shaped the New American Association of Massachusetts into the leading post-resettlement agency north of Boston."
           />
-          <div className="relative mx-auto max-w-3xl">
-            <div className="absolute left-[19px] top-2 bottom-2 w-0.5 bg-brand-100 sm:left-1/2 sm:-translate-x-1/2" />
-            <div className="space-y-10">
-              {aboutContent.timeline.map((item, i) => (
-                <Reveal
-                  key={item.year}
-                  delay={i * 0.05}
-                  className={`relative flex gap-6 sm:w-1/2 ${
-                    i % 2 === 0 ? "sm:pr-10 sm:text-right" : "sm:ml-auto sm:pl-10"
-                  }`}
-                >
-                  <span
-                    className={`absolute left-0 top-1 grid h-10 w-10 place-items-center rounded-full bg-brand-600 text-xs font-bold text-white sm:left-auto ${
-                      i % 2 === 0 ? "sm:-right-5" : "sm:-left-5"
-                    }`}
-                  >
-                    {item.year.slice(2)}
-                  </span>
-                  <div className="ml-16 sm:ml-0">
-                    <p className="font-display text-sm font-semibold text-brand-600">
-                      {item.year}
-                    </p>
-                    <h3 className="mt-1 text-lg text-ink">{item.title}</h3>
-                    <p className="mt-1 text-sm text-ink-soft">{item.text}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
+          <Reveal>
+            <Timeline items={aboutContent.timeline} />
+          </Reveal>
         </Container>
       </section>
 
@@ -107,10 +82,7 @@ export default function AboutPage() {
       <CTABand
         title="Meet the people behind NAAM"
         text="Many of our team members are themselves immigrants and refugees who understand the journey firsthand."
-        actions={[
-          { label: "Our team", href: "/about/team" },
-          { label: "Who we serve", href: "/about/who-we-serve", variant: "white" },
-        ]}
+        actions={[{ label: "Our team", href: "/about/team" }]}
       />
     </>
   );

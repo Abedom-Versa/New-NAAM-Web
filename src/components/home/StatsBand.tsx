@@ -5,7 +5,7 @@ import { stats } from "@/lib/site";
 
 export function StatsBand() {
   return (
-    <section className="relative z-10 -mt-px bg-white py-14 sm:py-16">
+    <section className="relative z-10 -mt-px bg-white py-10 sm:py-12">
       <Container>
         <dl className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
           {stats.map((stat, i) => (
