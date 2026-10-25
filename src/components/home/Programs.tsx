@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
 import { programs, homepageProgramSlugs } from "@/lib/site";
+import { cn } from "@/lib/cn";
 
 /* The client asked for a 3x2 grid of six programs on the homepage.
    All eight program pages still exist and remain reachable from /programs. */
@@ -16,7 +17,7 @@ const featured = homepageProgramSlugs
 
 export function Programs() {
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-white py-14 sm:py-16">
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
@@ -30,7 +31,7 @@ export function Programs() {
           </Button>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((program, i) => (
             <Reveal key={program.slug} delay={(i % 3) * 0.07}>
               <Link
@@ -43,7 +44,10 @@ export function Programs() {
                     alt={program.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={cn(
+                      "object-cover transition-transform duration-500 group-hover:scale-105",
+                      program.imagePosition
+                    )}
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">

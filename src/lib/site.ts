@@ -101,6 +101,8 @@ export type Program = {
   icon: string;
   blurb: string;
   image: string;
+  /** Tailwind object-position class, for photos whose subject isn't centered. */
+  imagePosition?: string;
 };
 
 export const programs: Program[] = [
@@ -150,7 +152,9 @@ export const programs: Program[] = [
     icon: "scale",
     blurb:
       "Naturalization (N-400) help, fee and disability waivers, civics classes, and mock interviews on the path to U.S. citizenship.",
-    image: "/images/casework.jpg",
+    // Winfred (Winnie) Anyangu, our Immigration Specialist, at the client's request.
+    image: "/images/team/winfred-anyangu.jpg",
+    imagePosition: "object-[center_30%]",
   },
   {
     slug: "food-pantry",
@@ -194,84 +198,182 @@ export const regions = [
 ];
 
 export type Story = {
+  slug: string;
   name: string;
+  fullName: string;
   origin: string;
   image: string;
+  /** Short card summary. */
   quote: string;
+  /** Full story and pull quote from the Who We Serve page on naamass.org (punctuation lightly tidied). */
+  story: string[];
+  pullQuote?: string;
 };
 
+// Photos are the ones on naamass.org, supplied by NAAM via Google Drive (Oct 15 2026).
 export const stories: Story[] = [
   {
+    slug: "alberte",
     name: "Alberte",
+    fullName: "Alberte Shebina Eugene",
     origin: "Haiti",
-    image: "/images/story-3.jpg",
+    image: "/images/stories/alberte.jpg",
     quote:
       "I improved my English with NAAM and earned my CNA certification. Today I have a job I'm proud of and a future for my family.",
+    story: [
+      "Alberte Shebina Eugene is from Haiti and joined NAAM in August of 2023. Living as a single mom with her daughter, Alberte Shebina was struggling to make ends meet. She had very limited English and even admitted to feeling like a failure at that time. She felt that her dreams of living in the U.S. for a better life were obstructed by the challenges she was facing. After she enrolled with NAAM, she was inspired by the services provided and saw them as the way to achieve her dreams.",
+      "She attended NAAM English classes regularly and after one year, her English improved dramatically. As her English proficiency improved and with the assistance of the NAAM team, she got an offer for her dream job CNA and has since received glowing performance reviews. She thanks NAAM for providing services that helped her achieve her goals and boost her confidence, both in her field and with her family's lives.",
+    ],
+    pullQuote:
+      "Once again, I would like to express my special gratitude to the NAAM office in Lowell for helping me on the path of education and empowerment.",
   },
   {
+    slug: "ahmad",
     name: "Ahmad",
+    fullName: "Ahmad Jawid Majidi",
     origin: "Afghanistan",
-    image: "/images/story-2.jpg",
+    image: "/images/stories/ahmad.jpg",
     quote:
       "NAAM helped me find warehouse work within months of arriving, and my family joined the ESL classes. We finally feel at home.",
+    story: [
+      "Ahmad Jawid Majidi moved to Lowell, Massachusetts, with his 4 children after the domination of Afghanistan by the Taliban. In Afghanistan, he worked as a cleaner on a military base. After joining NAAM and learning about the services we offer, he was determined to take full advantage of everything we have to offer. Working with us, he realized the importance of working towards eliminating obstacles to expand his career opportunities. He attends English classes regularly, and through NAAM, he found a job as a Warehouse Associate at the Marshalls Distribution Center.",
+      "Ahmad Jawid is also grateful for NAAM not only helping him but helping his family. Due to some structural barriers preventing women in Afghanistan from obtaining education, Ahmad Jawid is grateful that NAAM has provided his wife the opportunity to learn English through our English classes.",
+      "The Majidi family is very optimistic and hopeful that with NAAM's help, they will be able to build a stable life in the United States.",
+    ],
+    pullQuote:
+      "I am very happy and grateful to be here in [the] USA with my family. Now I am almost standing on my own two feet.",
   },
   {
+    slug: "fawziya",
     name: "Fawziya",
+    fullName: "Fawziya Abdi Roble",
     origin: "Somalia",
-    image: "/images/story-1.jpg",
+    image: "/images/stories/fawziya.jpg",
     quote:
       "I completed phlebotomy training and bought my first car. NAAM believed in me before I believed in myself.",
+    story: [
+      "Fawziya Abdi Roble and her family were refugees in Turkey for many years, where she worked hard to obtain an education. She studied nursing there, but her studies were interrupted when the family was forced to return to Somalia. In Somalia, the family was attacked by militias, one of the sisters killed and the father and brother forced to flee for their lives. Fawziya and the remaining family members arrived in the U.S. in June, 2022.",
+      "We enrolled Fawziya and her brother, Sheikh, in our Comprehensive Refugee Employment Services (CRES) soon after their arrival and they have taken full advantage of our programs, participating in employment services, ESL classes, DRIVE, and our food reimbursement program (until its conclusion last period). Fawziya is working part-time for a local healthcare agency as a housekeeper, fulfilling the role of caretaker for her disabled mother and sister, for which she receives a stipend through the Quality Care agency, and just completed a phlebotomy course through Spectrum Health Care Institute, one of the local health care agencies with whom we partner. She recently informed us that she has succeeded in purchasing a car, which will be of enormous help not only in terms of her own transportation to work, but in terms of helping transport her mom and sister to medical appointments.",
+      "Perhaps most inspiring about Fawziya's successes over the past year is observing her incredible perseverance and resilience. She is a client who has overcome seemingly insurmountable obstacles to build a life here for herself and her surviving family, with grace and gratitude.",
+    ],
   },
 ];
 
 export type NewsItem = {
+  slug: string;
   title: string;
   category: string;
   date: string;
   excerpt: string;
   image: string;
+  /** Full post body, from the matching post on naamass.org. */
+  body: string[];
+  lists?: { title: string; items: string[] }[];
+  link?: { label: string; href: string };
 };
 
 export const news: NewsItem[] = [
   {
+    slug: "natasha-soolkin-community-advocacy-award",
     title: "Natasha Soolkin Wins Community Advocacy Award",
     category: "Recognition",
-    date: "May 2026",
+    date: "May 21, 2025",
     excerpt:
-      "Our Executive Director is honored for two decades of tireless advocacy for refugees and immigrants across the North Shore.",
-    image: "/images/community.jpg",
+      "Our Executive Director received Eastern Bank's Community Advocacy Award, which honors nonprofit leaders improving the lives of immigrants.",
+    image: "/images/news/advocacy-award.jpg",
+    body: [
+      "On Wednesday, May 21, 2025, Natasha Soolkin received the Community Advocacy Award from Eastern Bank. This award recognizes outstanding nonprofit leaders and organizations across Massachusetts and New Hampshire who focus on improving the lives of immigrants.",
+    ],
+    link: {
+      label: "Read the press release",
+      href: "https://naamass.org/wp-content/uploads/2025/05/NAAM_Community_Award_Press_Release.pdf",
+    },
   },
   {
-    title: "The Afghan Women Project in the News",
+    slug: "afghan-women-project-7news",
+    title: "The Afghan Women Project on 7News",
     category: "In the Media",
-    date: "Apr 2026",
+    date: "Sep 28, 2024",
     excerpt:
-      "Local coverage spotlights NAAM's work supporting recently arrived Afghan women as they rebuild their lives in Massachusetts.",
+      "7News spotlights NAAM's Afghan Women Project and our work supporting recently arrived Afghan women as they rebuild their lives in Massachusetts.",
     image: "/images/english-class.jpg",
+    body: [
+      "7News featured NAAM's Afghan Women Project, with Executive Director Natasha Soolkin speaking about our work supporting recently arrived Afghan women as they rebuild their lives in Massachusetts.",
+    ],
+    link: {
+      label: "Watch the segment",
+      href: "https://www.youtube.com/watch?v=GidX824EGHs",
+    },
   },
   {
+    slug: "refugee-wellness-day",
     title: "Refugee Wellness Day Brings the Community Together",
     category: "Events",
-    date: "Mar 2026",
+    date: "Jul 6, 2024",
     excerpt:
-      "Families gathered for a day of health screenings, cultural celebration, and connection at our annual Refugee Wellness Day.",
-    image: "/images/wellness.jpg",
+      "Clients, staff, and their families gathered at Lynn Commons for a day of music, food from home, and community, just after World Refugee Day.",
+    image: "/images/news/refugee-wellness-day.jpg",
+    // Verbatim from naamass.org. The post says "July 22" but was published July 6, "just after
+    // World Refugee Day" (June 20), so the date is likely June 22. Left as published.
+    body: [
+      "On July 22, NAAM hosted a vibrant and heartwarming celebration at Lynn Commons, marking our “Health and Community Day” just after World Refugee Day. The event was a beautiful opportunity for our clients, staff, and their families to come together, relax, and enjoy each other's company. It was a day filled with laughter, joy, and a true sense of community.",
+      "The atmosphere was electric with various activities bringing smiles to everyone's faces. Our Ukrainian clients, Iryna and Eugeniia, led engaging sessions in rock painting and flower crown making, adding colorful creativity to the day. Salam Abbas from Iraq played an eclectic mix of music that had everyone singing and dancing, with our own Cameroonian Case Manager, Julie Nkangwa, dazzling everyone with her fabulous dance moves.",
+      "The air was filled with delicious smells as NAAM staff and clients shared food from their home countries. We were delighted to enjoy a culinary tour from Peru, Ukraine, the Dominican Republic, Puerto Rico, El Salvador, Guatemala, Brazil, Honduras, Morocco, and Afghanistan. Generous donations from local restaurants added to the feast, showcasing the rich diversity of our community.",
+      "A highlight of the day was the free raffle, made possible by our generous community donors. Clients won gift cards to local businesses, and children were thrilled with gift bags full of games, books, and art supplies.",
+      "The event was beautifully organized by Paola Colunga, a dedicated NAAM Case Manager, with invaluable assistance from Mathias Munoz, Melanie Duque, Matthew Alaniz, and many other staff members. “This event is my greatest joy and it gives me a lot of satisfaction,” shared Paola. “It makes me happy to be able to do these things for the community.”",
+    ],
+    lists: [
+      {
+        title: "With deepest gratitude to our sponsors and community partners",
+        items: [
+          "City of Lynn",
+          "MA Office for Refugees and Immigrants",
+          "Health Resources in Action",
+          "MA Department of Public Health",
+          "United Way of Mass Bay",
+        ],
+      },
+      {
+        title: "And to the local businesses who donated",
+        items: [
+          "Supreme Foods",
+          "Bread Dreams",
+          "Guatemala Restaurant",
+          "People Choice Restaurant",
+          "Chachi Fashion Boutique",
+          "Carol's Nails Salon",
+          "Nissy Salon and Barbershop",
+        ],
+      },
+    ],
   },
 ];
 
-export const partners = [
-  "City of Lynn",
-  "MA Office for Refugees & Immigrants",
-  "Eastern Bank Foundation",
-  "United Way",
-  "Stop & Shop",
-  "Wash Cycle Laundry",
-  "Phoenix Food Hub",
-  "North Shore Community College",
-  "Catholic Charities North",
-  "Lynn Community Health Center",
-  "Cummings Foundation",
-  "Office of Refugee Resettlement",
+// Links are each organization's own site, checked Oct 25 2026. The partner list itself is ours
+// (naamass.org has no sponsors section), so NAAM should confirm who belongs on it.
+// Logos come from each organization's own site (Stop & Shop's from Wikimedia Commons). Where an
+// organization has a standalone symbol we show just that, since the name sits beside it; the
+// rest use their full wordmark. `onDark` logos are white and need a dark tile.
+export type Partner = {
+  name: string;
+  href: string;
+  logo: { src: string; width: number; height: number; onDark?: boolean };
+};
+
+export const partners: Partner[] = [
+  { name: "City of Lynn", href: "https://www.lynnma.gov/", logo: { src: "/images/partners/city-of-lynn.png", width: 127, height: 128 } },
+  { name: "MA Office for Refugees & Immigrants", href: "https://www.mass.gov/orgs/office-for-refugees-and-immigrants", logo: { src: "/images/partners/ma-ori.png", width: 128, height: 128 } },
+  { name: "Eastern Bank Foundation", href: "https://www.easternbank.com/foundation", logo: { src: "/images/partners/eastern-bank.png", width: 128, height: 110 } },
+  { name: "United Way", href: "https://unitedwaymassbay.org/", logo: { src: "/images/partners/united-way.png", width: 128, height: 127 } },
+  { name: "Stop & Shop", href: "https://stopandshop.com/", logo: { src: "/images/partners/stop-and-shop.png", width: 400, height: 74 } },
+  { name: "Wash Cycle Laundry", href: "https://washcyclelaundry.com/", logo: { src: "/images/partners/wash-cycle-laundry.png", width: 128, height: 128, onDark: true } },
+  { name: "Phoenix Food Hub", href: "https://www.phoenixfoodhub.org/", logo: { src: "/images/partners/phoenix-food-hub.png", width: 240, height: 136 } },
+  { name: "North Shore Community College", href: "https://www.northshore.edu/", logo: { src: "/images/partners/nscc.png", width: 128, height: 128 } },
+  { name: "Catholic Charities North", href: "https://www.ccab.org/", logo: { src: "/images/partners/catholic-charities.png", width: 126, height: 128 } },
+  { name: "Lynn Community Health Center", href: "https://lynnchc.org/", logo: { src: "/images/partners/lynn-chc.png", width: 128, height: 127 } },
+  { name: "Cummings Foundation", href: "https://www.cummingsfoundation.org/", logo: { src: "/images/partners/cummings-mark.png", width: 128, height: 107 } },
+  // ORR is an office of the Administration for Children & Families, whose logo heads acf.gov/orr.
+  { name: "Office of Refugee Resettlement", href: "https://acf.gov/orr", logo: { src: "/images/partners/acf.png", width: 400, height: 63 } },
 ];
 
 export const involveCards = [

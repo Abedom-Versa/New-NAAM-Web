@@ -289,12 +289,22 @@ export const programDetails: Record<string, ProgramDetail> = {
 export const aboutContent = {
   mission:
     "To assist newly arriving refugees and immigrants with integration into American society, to promote economic stability, to build bridges with the larger community, and to foster the maintenance of refugees' and immigrants' cultural identities.",
+  // The first four entries are verbatim from naamass.org ("Our Journey Through Time").
+  // The rest are the milestones the client added (Oct 2026). The client gave titles only, and
+  // naamass.org gives no start year for the three marked `year: null`. They render as
+  // "Year TBC" in the order the client listed them, until NAAM confirms the dates.
   timeline: [
-    { year: "1990", title: "RCAM is founded", text: "The Russian Community Association of Massachusetts opens its doors to support new arrivals." },
-    { year: "2005", title: "Serving more communities", text: "Services expand to welcome diverse ethnic populations from around the world." },
-    { year: "2017", title: "Lowell office opens", text: "A satellite office extends our reach to families in the Merrimack Valley." },
-    { year: "2018", title: "NAAM is born", text: "We rebrand as the New American Association of Massachusetts to reflect who we serve." },
-  ],
+    { year: "1990", title: "Founding of RCAM", text: "The Russian Community Association of Massachusetts (RCAM) was established by a group of dedicated volunteers, immigrants, and refugees from the Former Soviet Union, aiming to provide self-help and support to newly arrived communities." },
+    { year: "2005", title: "Expanding services", text: "Recognizing the diverse needs of our growing clientele, RCAM expanded its services to include various ethnic groups, offering comprehensive support to refugees and immigrants from around the globe." },
+    { year: "2017", title: "Opening of Lowell office", text: "To better serve the immigrant population, NAAM opened a satellite office in Lowell, Massachusetts, enhancing accessibility and support for the 30% immigrant residents in the area." },
+    { year: "2018", title: "Rebranding to NAAM", text: "Reflecting our commitment to serving a diverse community, we rebranded as the New American Association of Massachusetts, symbolizing our inclusive approach and dedication to all new Americans." },
+    { year: null, title: "Youth Program begins", text: "Our Children & Youth Program opens, giving young newcomers tutoring, mentorship, and a place to belong." },
+    { year: null, title: "Summer Program begins", text: "The Summer Program launches, pairing field trips and creative workshops with learning to prevent summer learning loss." },
+    { year: null, title: "Citizenship application support begins", text: "NAAM starts helping eligible permanent residents prepare and file their naturalization applications." },
+    { year: "2020", title: "COVID food distribution", text: "As the pandemic hits, NAAM organizes food distribution so newcomer families can keep food on the table." },
+    { year: "2020", title: "ESOL classes move online", text: "English classes move online during the pandemic. The hybrid and virtual programming that began then now reaches learners across the state." },
+    { year: "2022", title: "NAAM Artisans launches", text: "A new program gives immigrant makers, many facing language barriers, a way to share their craft and earn income from handmade work." },
+  ] satisfies { year: string | null; title: string; text: string }[],
   values: [
     { icon: "heart-handshake", title: "Dignity", text: "Every person is welcomed with respect for who they are and where they've come from." },
     { icon: "compass", title: "Empowerment", text: "We build independence and self-sufficiency, never dependency." },
@@ -302,77 +312,6 @@ export const aboutContent = {
     { icon: "hand-heart", title: "Community", text: "We build bridges between new Americans and the neighbors who welcome them." },
   ],
 };
-
-/* ---------- Team ---------- */
-// Team roster and headshots taken from naamass.org (fetched Sep 8 2026).
-// Grouping follows the structure the client asked for; the Leadership/Program split
-// is ours, made on job title, and needs NAAM's confirmation.
-export const team = [
-  {
-    department: "Board of Directors",
-    members: [
-      { name: "Harena Gebreyesus", role: "President of the Board", image: "/images/team/harena-gebreyesus.jpg" },
-      { name: "Dany Chhan", role: "Vice President", image: "/images/team/dany-chhan.jpg" },
-      { name: "Romell Kidd", role: "Treasurer", image: "/images/team/romell-kidd.jpg" },
-      { name: "Rasha Mikhael", role: "", image: "/images/team/rasha-mikhael.jpg" },
-      { name: "Analesa Baraka", role: "", image: "/images/team/analesa-baraka.jpg" },
-      { name: "Doug Pardo", role: "", image: "/images/team/doug-pardo.jpg" },
-    ],
-  },
-  {
-    department: "Leadership Team",
-    members: [
-      { name: "Natasha Soolkin", role: "Executive Director", image: "/images/team/natasha-soolkin.jpg" },
-      { name: "Valeria Fasolo", role: "Director of Employment Services", image: "/images/team/valeria-fasolo.jpg" },
-      { name: "Ally Croteau", role: "Lowell Regional Director", image: "/images/team/ally-croteau.jpg" },
-      { name: "Mia Mountain", role: "Director of Curriculum for ESOL Programming", image: "/images/team/mia-mountain.jpg" },
-      { name: "Erica Peterson", role: "Director of Operations for ESOL Programming", image: "/images/team/erica-peterson.jpg" },
-      { name: "Nicole Wilmarth", role: "Director of Youth Services", image: "/images/team/nicole-wilmarth.jpg" },
-      { name: "Michael P. Martel", role: "Legal Director, Immigration Program", image: "/images/team/michael-p-martel.jpg" },
-      { name: "Dr. Scune Carrington", role: "Chief Clinical Officer and Wellness Clinic Director", image: "/images/team/dr-scune-carrington.jpg" },
-      { name: "Lesley Hansard", role: "Program Director, NAAM Artisans", image: "/images/team/lesley-hansard.jpg" },
-      { name: "Igor Sokolik", role: "Career Development Program Instructor/ NAAM Board of Directors", image: "/images/team/igor-sokolik.jpg" },
-    ],
-  },
-  {
-    department: "Program Staff",
-    members: [
-      { name: "Sabine Metellus", role: "Employment Specialist, Lowell Office", image: "/images/team/sabine-metellus.jpg" },
-      { name: "Diana M. Staco-Millery", role: "Employment Specialist - Lynn", image: "/images/team/diana-m-staco-millery.jpg" },
-      { name: "Zabihullah Moshfiq", role: "Employment Specialist, Lowell Office", image: "/images/team/zabihullah-moshfiq.jpg" },
-      { name: "Kelsey Maira", role: "Lowell Youth Program Coordinator / Employment Specialist", image: "/images/team/kelsey-maira.jpg" },
-      { name: "Venette Jean", role: "Citizenship/ Social Services Case Manager", image: "/images/team/venette-jean.jpg" },
-      { name: "Paola Colunga", role: "Case Manager & Program Coordinator", image: "/images/team/paola-colunga.jpg" },
-      { name: "Jules Andre Mettellus", role: "Case Manager / Employment Specialist - Lynn", image: "/images/team/jules-andre-mettellus.jpg" },
-      { name: "Bahara Amiri", role: "Case Manager", image: "/images/team/bahara-amiri.jpg" },
-      { name: "Julie Nkwetta", role: "Cameroonian Case Manager", image: "/images/team/julie-nkwetta.jpg" },
-      { name: "Lynne Havusha", role: "RCS Coordinator / Employment Specialist - Lynn", image: "/images/team/lynne-havusha.jpg" },
-      { name: "Shira Moss", role: "ELT-I Instructor/Project-based learning: Art, Music, Wellness, Life Skills", image: "/images/team/shira-moss.jpg" },
-      { name: "Virginia Bolat", role: "English for Employment English Instructor", image: "/images/team/virginia-bolat.jpg" },
-      { name: "Chris Carroll", role: "ESL Instructor", image: "/images/team/chris-carroll.jpg" },
-      { name: "Nadia Elmouhsine", role: "English for Employment English Instructor", image: "/images/team/nadia-elmouhsine.jpg" },
-      { name: "Sanna Shaheen Saddy", role: "English for Employment English Instructor", image: "/images/team/sanna-shaheen-saddy.jpg" },
-      { name: "Geraldine Gabon", role: "ESOL Student Liaison", image: "/images/team/geraldine-gabon.jpg" },
-      { name: "Reem Ahmad", role: "Teen & Young Adult Coordinator", image: "/images/team/reem-ahmad.jpg" },
-      { name: "Silvie Prinston", role: "School Age Program Coordinator", image: "/images/team/silvie-prinston.jpg" },
-      { name: "Madina Arsh Burhani", role: "Early Childhood Coordinator", image: "/images/team/madina-arsh-burhani.jpg" },
-      { name: "Winfred Anyangu", role: "Immigration Specialist", image: "/images/team/winfred-anyangu.jpg" },
-      { name: "Judi Goldman, LICSW", role: "Wellness Program Coordinator, NAAM", image: "/images/team/judi-goldman-licsw.jpg" },
-      { name: "Carlinne Barros", role: "Wellness Clinic Enrollment and Case Management Specialist", image: "/images/team/carlinne-barros.jpg" },
-      { name: "Emilie Wilk", role: "Craft Show Manager", image: "/images/team/emilie-wilk.jpg" },
-      { name: "Taiba Amiri", role: "NAAM Artisans Craft Show Manager", image: "/images/team/taiba-amiri.jpg" },
-      { name: "Forrest Elliott", role: "Creative Consultant", image: "/images/team/forrest-elliott.jpg" },
-      { name: "Khujasta Bahara Amiri", role: "Interpreter, Afghan Cultural Ambassador", image: "/images/team/khujasta-bahara-amiri.jpg" },
-      { name: "Nicole Rodriguez", role: "English Teacher", image: "/images/team/nicole-rodriguez.jpg" },
-      { name: "Jud-Ann Geneus", role: "Operations Manager", image: "/images/team/jud-ann-geneus.jpg" },
-      { name: "Ramy Mahdi", role: "IT Specialist", image: "/images/team/ramy-mahdi.jpg" },
-      { name: "Judith Charles", role: "Employment Specialist", image: "/images/team/judith-charles.jpg" },
-      { name: "Dulany Alexander", role: "Citizenship Instructor/Computer Training Instructor", image: "/images/team/dulany-alexander.jpg" },
-      { name: "Roberta Rogers", role: "Computer Training Volunteer", image: "/images/team/roberta-rogers.jpg" },
-      { name: "Nancy Sullivan", role: "ESL/Citizenship Programs", image: "/images/team/nancy-sullivan.jpg" },
-    ],
-  },
-];
 
 /* ---------- Get Involved ---------- */
 export const volunteerRoles: IconCardItem[] = [

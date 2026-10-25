@@ -104,7 +104,7 @@ export function Header() {
             </div>
             <span className="hidden sm:block">
               <Button href={org.donateUrl} variant="gold" size="md">
-                Donate Now
+                Donate
               </Button>
             </span>
             <div className="lg:hidden">
@@ -185,7 +185,7 @@ export function Header() {
             </nav>
             <div className="border-t border-brand-100 p-5">
               <Button href={org.donateUrl} variant="gold" size="lg" className="w-full">
-                Donate Now
+                Donate
               </Button>
               <div className="mt-4 space-y-1 text-sm text-ink-soft">
                 <a href={org.phoneHref} className="flex items-center gap-2">

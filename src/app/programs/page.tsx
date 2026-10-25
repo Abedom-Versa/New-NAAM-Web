@@ -56,7 +56,7 @@ export default function ProgramsPage() {
         text="Reach out and our team will help you find the right program for your situation."
         actions={[
           { label: "Contact us", href: "/contact" },
-          { label: "Donate now", href: org.donateUrl, variant: "white" },
+          { label: "Donate", href: org.donateUrl, variant: "white" },
         ]}
       />
     </>
